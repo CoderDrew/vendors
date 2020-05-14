@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Navbar from './components/layout/Navbar';
+import Chart from './components/chart/Chart';
+import Grid from './components/grid/Grid';
+import data from './vendor.json';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className='App'>
+        <div className='container-fluid p-0'>
+          <Navbar title='Vendor Payments' icon='far fa-chart-bar' />
+          <div style={{ padding: '1rem' }}></div>
+          <div className='row'>
+            <div className='col-3'>
+              <Chart data={data} />
+            </div>
+            <div className='col-9'>
+              <Grid />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
